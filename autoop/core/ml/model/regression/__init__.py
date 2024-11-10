@@ -1,2 +1,12 @@
+"""
+This file contains all regression model classes from the regression folder
+"""
 
-from autoop.core.ml.model.regression.multiple_linear_regression import MultipleLinearRegression
+from autoop.core.ml.model.regression.DecisionTreeRegression import (
+    TreeRegression)
+from autoop.core.ml.model.regression.KNeighborsRegression import (
+    KNeighborsRegressor)
+from autoop.core.ml.model.regression.SupportVectorRegression import (
+    SupVecRegression)
+
+unused = [TreeRegression, KNeighborsRegressor, SupVecRegression]

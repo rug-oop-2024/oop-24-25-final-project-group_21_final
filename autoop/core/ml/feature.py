@@ -1,12 +1,23 @@
-
 from pydantic import BaseModel, Field
-from typing import Literal
-import numpy as np
 
-from autoop.core.ml.dataset import Dataset
 
 class Feature(BaseModel):
-    # attributes here
+    """
+    Class that represents a Feature
 
-    def __str__(self):
-        raise NotImplementedError("To be implemented.")
+    Args:
+        BaseModel: Allows for pydantic's Field and PrivateAttr functions
+    """
+
+    name: str = Field()
+    type: str = Field()
+
+    def __str__(self) -> str:
+        """Magic method to make sure when the class is printed,
+        it always returns the same structure
+
+        Returns:
+            str: A description of the featurename and type
+        """
+
+        return f"Feature {self.name} contains {self.type} data"
