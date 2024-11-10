@@ -18,7 +18,7 @@ Follow these steps to use the website and model effectively:
     Running the model will display all Metrics, resulting from the data and model
 7. **ADDITIONAL FEATURE**
    As an additional feature, you can now choose your own input data to check the predicted target value
-   without the need for an entire file later
+   without the need for an entire file later. Note, this only works on continuous input features
 
 8. **Save the Pipeline**
    You can save the model, give your own name and version to it and press **Save Pipeline**
