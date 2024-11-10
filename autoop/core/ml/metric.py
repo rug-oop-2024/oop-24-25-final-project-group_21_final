@@ -308,8 +308,8 @@ class Recall(Metric):
         recalls = []
 
         for cls in unique_classes:
-            true_positive = np.sum((predictions == cls)
-                                   & (ground_truths == cls))
+            true_positive = np.sum(
+                (predictions == cls) & (ground_truths == cls))
             actual_positive = np.sum(ground_truths == cls)
 
             recall = true_positive / actual_positive if (

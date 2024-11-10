@@ -36,7 +36,7 @@ listofmodels_regression = [TreeRegression(),
 listofmodels = listofmodels_categorical + listofmodels_regression
 
 
-def display_pipeline_attributes(pipeline, dataset: Dataset):
+def display_pipeline_attributes(pipeline: Pipeline, dataset: Dataset) -> None:
     """
     This function displays the attributes
     of the pipeline object in a readable format.
@@ -52,7 +52,13 @@ def display_pipeline_attributes(pipeline, dataset: Dataset):
     st.write(f"Split Ratio: {pipeline._split * 100}%")
 
 
-def write_helper_text(text: str):
+def write_helper_text(text: str) -> None:
+    """
+    Renders and prints data in a html-type format wih css property
+
+    Args:
+        text (str): the text that has to be printed
+    """
     st.write(f'<p style="color: #888;">{text}</p>', unsafe_allow_html=True)
 
 
