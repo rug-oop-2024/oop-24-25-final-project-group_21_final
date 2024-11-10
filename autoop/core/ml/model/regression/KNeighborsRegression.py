@@ -10,7 +10,7 @@ class KNN_Regression(Model):
     Args:
         Model: Uses the Model baseclass for structure
     """
-    def __init__(self, k=5, **kwargs) -> None:
+    def __init__(self, k: int = 5, **kwargs) -> None:
         """Initializes the KNeighborsRegressor model
 
         Args:

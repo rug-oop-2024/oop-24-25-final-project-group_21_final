@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 import numpy as np
-
+from typing import Union
 
 METRICS = [
     "mean_squared_error",
@@ -12,7 +12,7 @@ METRICS = [
 ]
 
 
-def get_metric(name: str):
+def get_metric(name: str) -> Union["Metric", None]:
     """
     Function used for mapping the class/metric to the names
 
@@ -134,7 +134,8 @@ class Accuracy(Metric):
 
         return self.evaluate(predictions, ground_truths)
 
-    def evaluate(self, predictions, ground_truths):
+    def evaluate(self, predictions: np.ndarray,
+                 ground_truths: np.ndarray) -> float:
         """
         Calculates the accuracy.
 
@@ -168,7 +169,8 @@ class Mean_Absolute_Error(Metric):
         """
         return self.evaluate(predictions, ground_truths)
 
-    def evaluate(self, predictions, ground_truths):
+    def evaluate(self, predictions: np.ndarray,
+                 ground_truths: np.ndarray) -> float:
         """
         Calculates the Mean absolute error.
 
@@ -183,6 +185,11 @@ class Mean_Absolute_Error(Metric):
 
 
 class R_Squared(Metric):
+    """Calculates the R-Squared Metric
+
+    Args:
+        Metric: Basemodel for all metrics
+    """
     def __call__(self, ground_truths: np.ndarray,
                  predictions: np.ndarray) -> float:
         """
@@ -198,7 +205,8 @@ class R_Squared(Metric):
 
         return self.evaluate(predictions, ground_truths)
 
-    def evaluate(self, predictions, ground_truths):
+    def evaluate(self, predictions: np.ndarray,
+                 ground_truths: np.ndarray) -> float:
         """
         Calculates the R-Squared metric.
 
@@ -236,7 +244,8 @@ class Precision(Metric):
         """
         return self.evaluate(predictions, ground_truths)
 
-    def evaluate(self, predictions, ground_truths):
+    def evaluate(self, predictions: np.ndarray,
+                 ground_truths: np.ndarray) -> float:
         """
         Calculates the Precision metric.
 
@@ -251,8 +260,8 @@ class Precision(Metric):
         precisions = []
 
         for cls in classes:
-            true_positive = np.sum((predictions == cls)
-                                   & (ground_truths == cls))
+            true_positive = np.sum(
+                (predictions == cls) & (ground_truths == cls))
             predicted_p = np.sum(predictions == cls)
 
             precision = true_positive / predicted_p if predicted_p > 0 else 0.0
@@ -282,7 +291,8 @@ class Recall(Metric):
         """
         return self.evaluate(predictions, ground_truths)
 
-    def evaluate(self, predictions, ground_truths):
+    def evaluate(self, predictions: np.ndarray,
+                 ground_truths: np.ndarray) -> float:
         """
         Calculates the Recall metric.
 

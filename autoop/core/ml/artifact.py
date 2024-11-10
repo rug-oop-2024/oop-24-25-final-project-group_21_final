@@ -29,7 +29,7 @@ class Artifact:
         type: str,
         tags: list[str] = None,
         metadata: dict = None,
-    ):
+    ) -> None:
         """Initializes Artifact object
 
         Args:
@@ -56,7 +56,7 @@ class Artifact:
         return self._name
 
     @name.setter
-    def name(self, value: str):
+    def name(self, value: str) -> None:
         """Setter for the 'name' attribute."""
         self._name = value
 
@@ -66,7 +66,7 @@ class Artifact:
         return self._version
 
     @version.setter
-    def version(self, value: str):
+    def version(self, value: str) -> None:
         """Setter for the 'version' attribute."""
         self._version = value
 
@@ -76,7 +76,7 @@ class Artifact:
         return self._asset_path
 
     @asset_path.setter
-    def asset_path(self, value: str):
+    def asset_path(self, value: str) -> None:
         """Setter for the 'asset_path' attribute."""
         self._asset_path = value
 
@@ -86,17 +86,17 @@ class Artifact:
         return self._type
 
     @type.setter
-    def type(self, value: str):
+    def type(self, value: str) -> None:
         """Setter for the 'type' attribute."""
         self._type = value
 
     @property
     def tags(self) -> list[str]:
         """Getter for the 'tags' attribute."""
-        return deepcopy(self._tags)  # Use deepcopy for mutable lists
+        return deepcopy(self._tags)
 
     @tags.setter
-    def tags(self, value: list[str]):
+    def tags(self, value: list[str]) -> None:
         """Setter for the 'tags' attribute."""
         self._tags = value
 
@@ -106,7 +106,7 @@ class Artifact:
         return deepcopy(self._metadata)  # Use deepcopy for mutable dicts
 
     @metadata.setter
-    def metadata(self, value: dict):
+    def metadata(self, value: dict) -> None:
         """Setter for the 'metadata' attribute."""
         self._metadata = value
 
@@ -116,7 +116,7 @@ class Artifact:
         return self._data
 
     @data.setter
-    def data(self, value: Optional[bytes]):
+    def data(self, value: Optional[bytes]) -> None:
         """Setter for the 'data' attribute."""
         self._data = value
 
@@ -140,7 +140,7 @@ class Artifact:
             id = id.replace(char, "_")
         return id
 
-    def generate_id(self):
+    def generate_id(self) -> str:
         """Generates an ID based on the name and version of the Artifact
 
         Returns:

@@ -113,7 +113,7 @@ class AutoMLSystem:
     """
     _instance: Optional['AutoMLSystem'] = None
 
-    def __init__(self, storage: LocalStorage, database: Database):
+    def __init__(self, storage: LocalStorage, database: Database) -> None:
         """
         Initializes the AutoMLSystem
 

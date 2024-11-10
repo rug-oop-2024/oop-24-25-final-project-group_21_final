@@ -8,3 +8,5 @@ from autoop.core.ml.model.regression.KNeighborsRegression import (
     KNeighborsRegressor)
 from autoop.core.ml.model.regression.SupportVectorRegression import (
     SupVecRegression)
+
+unused = [TreeRegression, KNeighborsRegressor, SupVecRegression]

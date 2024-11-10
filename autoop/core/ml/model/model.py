@@ -18,7 +18,7 @@ class Model(Artifact, ABC):
     _type: Literal["classification", "regression"]
     _parameters: dict = PrivateAttr(default_factory=dict)
 
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs) -> None:
         """Initializes the model with optional parameters
 
         Args:
@@ -27,7 +27,7 @@ class Model(Artifact, ABC):
         super(Artifact, self).__init__(**kwargs)
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Returns a copy of the models type
 
         Returns:
@@ -36,7 +36,7 @@ class Model(Artifact, ABC):
         return self._type
 
     @type.setter
-    def type(self, type):
+    def type(self, type: str) -> None:
         self._type = type
 
     @property

@@ -5,16 +5,32 @@ from glob import glob
 
 
 class NotFoundError(Exception):
-    def __init__(self, path):
+    """
+    Exception for when the path is not found
+    """
+
+    def __init__(self, path: str) -> None:
+        """
+        Initializes the NotFoundError class
+
+        Args:
+            path (str): The path that is not found
+        """
         super().__init__(f"Path not found: {path}")
 
 
 class Storage(ABC):
+    """
+    Abstract Base Class for storage systems
 
+    Args:
+        ABC: Allows for implementing the class as an abstract base class
+    """
     @abstractmethod
-    def save(self, data: bytes, path: str):
+    def save(self, data: bytes, path: str) -> None:
         """
         Save data to a given path
+
         Args:
             data (bytes): Data to save
             path (str): Path to save data
@@ -33,7 +49,7 @@ class Storage(ABC):
         pass
 
     @abstractmethod
-    def delete(self, path: str):
+    def delete(self, path: str) -> None:
         """
         Delete data at a given path
         Args:
@@ -56,7 +72,7 @@ class Storage(ABC):
 class LocalStorage(Storage):
     """Implementation of Storage class, used for managing files"""
 
-    def __init__(self, base_path: str = "./assets"):
+    def __init__(self, base_path: str = "./assets") -> None:
         """Initializes the LocalStorage
 
         Args:
@@ -66,7 +82,7 @@ class LocalStorage(Storage):
         if not os.path.exists(self._base_path):
             os.makedirs(self._base_path)
 
-    def save(self, data: bytes, key: str):
+    def save(self, data: bytes, key: str) -> None:
         """
         Saving data to a file using a key
 
@@ -95,7 +111,7 @@ class LocalStorage(Storage):
         with open(path, "rb") as f:
             return f.read()
 
-    def delete(self, key: str = "/"):
+    def delete(self, key: str = "/") -> None:
         """
         Delete the file at the path using the key
 

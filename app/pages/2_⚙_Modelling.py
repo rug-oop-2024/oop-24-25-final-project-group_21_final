@@ -44,8 +44,8 @@ def display_pipeline_attributes(pipeline, dataset: Dataset):
     st.write("### Other Pipeline Attributes")
     st.write(f"Dataset model: {pipeline.model.__class__.__name__}")
     st.write(
-        f"Dataset input features: {', '.join(
-            f.name for f in pipeline._input_features)}"
+        "Dataset input features: "
+        f"{', '.join(f.name for f in pipeline._input_features)}"
     )
     st.write(f"Target features: {pipeline._target_feature.name}")
     st.write(f"Dataset Name: {dataset.name}")

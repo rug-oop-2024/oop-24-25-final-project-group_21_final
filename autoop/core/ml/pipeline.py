@@ -37,8 +37,8 @@ class Pipeline:
         model: Model,
         input_features: List[Feature],
         target_feature: Feature,
-        split=0.8,
-    ):
+        split: int = 0.8,
+    ) -> None:
         """Initialize the Pipeline
 
         Args:
@@ -87,11 +87,10 @@ Pipeline(
         Returns:
             List[Feature]: the list of features, which is the attribute
         """
-        return self._input_features\
-
+        return self._input_features
 
     @input_features.setter
-    def input_features(self, input_features: List[Feature]):
+    def input_features(self, input_features: List[Feature]) -> None:
         """Set the input feature attribute
 
         Args:
@@ -110,7 +109,7 @@ Pipeline(
         return self._target_feature
 
     @target_feature.setter
-    def target_feature(self, target_feature: Feature):
+    def target_feature(self, target_feature: Feature) -> None:
         """Set the target feature attribute
 
         Args:

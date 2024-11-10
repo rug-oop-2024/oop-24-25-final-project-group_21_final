@@ -6,10 +6,18 @@ from autoop.core.storage import Storage
 
 
 class Database:
+    """
+    A class representing a Database
+    """
+    def __init__(self, storage: Storage) -> None:
+        """Initialize the Database
 
-    def __init__(self, storage: Storage):
+        Args:
+            _storage (Storage): A storage object for saving and loading data
+            _data (dict): defaults as {}, contains storage of data
+        """
         self._storage = storage
-        self._data = {}
+        self._data: dict = {}
         self._load()
 
     def set(self, collection: str, id: str, entry: dict) -> dict:
@@ -70,7 +78,7 @@ class Database:
             return []
         return [(id, data) for id, data in self._data[collection].items()]
 
-    def refresh(self):
+    def refresh(self) -> None:
         """Refresh the database by loading the data from storage"""
         self._load()
 

@@ -10,7 +10,7 @@ class KNN_Classifier(Model):
     Args:
         Model: Uses the Model baseclass for structure
     """
-    def __init__(self, k=5, **kwargs) -> None:
+    def __init__(self, k: int = 5, **kwargs) -> None:
         """Initializes the KNeighborsRegressor model
 
         Args:
@@ -20,7 +20,7 @@ class KNN_Classifier(Model):
         super().__init__()
         self.model = KNeighborsClassifier(n_neighbors=k, **kwargs)
 
-    def fit(self, observations: np.ndarray, ground_truths: np.ndarray):
+    def fit(self, observations: np.ndarray, ground_truths: np.ndarray) -> None:
         """
         Fits the model to the observations
 

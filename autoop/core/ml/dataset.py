@@ -13,7 +13,7 @@ class Dataset(Artifact, ABC):
         ABC: Allows for abstract base class
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         """Initializes the dataset class using the constructor of the Artifact.
         Args:
             *args: positional arguments
@@ -25,7 +25,7 @@ class Dataset(Artifact, ABC):
     @staticmethod
     def from_dataframe(
         data: pd.DataFrame, name: str, asset_path: str, version: str = "1.0.0"
-    ):
+    ) -> None:
         """Creates an instance of Dataset from a panda dataframe
 
         Args:
@@ -45,7 +45,7 @@ class Dataset(Artifact, ABC):
             version=version,
         )
 
-    def from_artifact(artifact: Artifact):
+    def from_artifact(artifact: Artifact) -> "Dataset":
         """
         Creates and instance of a Dataset from an Artifact
 
